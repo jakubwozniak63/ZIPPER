@@ -11,6 +11,7 @@ public class Zipper extends JFrame
 {
     public Zipper()
     {
+        
         this.setTitle("Zipper");
         this.setBounds(275, 300, 250, 250);
         this.setJMenuBar(pasekMenu);
@@ -57,14 +58,12 @@ public class Zipper extends JFrame
         
         );
         
-        
        
        this.getContentPane().setLayout(layout);
        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
        
-       this.setIconImage(img.getImage());
- 
-
+       
+      
        
        this.pack();
     }
@@ -136,7 +135,7 @@ public class Zipper extends JFrame
           else if (e.getActionCommand().equals("Usuń"))
                 usuwanieWpisowZListy();
           else if (e.getActionCommand().equals("Zip"))
-                System.out.println("Zipowanie");
+                stworzArchiwumZip();
                   
                
         }
@@ -181,6 +180,13 @@ public class Zipper extends JFrame
             modelListy.remove(tmp[i]-i);
             }
             
+        }
+        
+        private void stworzArchiwumZip()
+        {
+            wybieracz.setCurrentDirectory(new File(System.getProperty("user.dir")));
+            wybieracz.setSelectedFile(new File(System.getProperty("user.dir")+File.separator+"mojanazwa.zip"));
+            wybieracz.showDialog(rootPane, "Kompresuj");
         }
    
     }
